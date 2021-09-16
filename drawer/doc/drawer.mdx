@@ -1,0 +1,62 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Drawer } from '~/drawer';
+import { Playground } from '@divriots/dockit-react/playground';
+
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Drawer
+
+Drawer.Item: A component used to show an action item with an icon and a label in a navigation drawer.
+Drawer.Section: A component to group content inside a navigation drawer.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { Drawer } from '@divriots/starter-reactnative-paper/drawer';
+
+const MyComponent = () => {
+  const [active, setActive] = React.useState('');
+
+  return (
+    <Drawer.Section title="Some title">
+      <Drawer.Item
+        label="First Item"
+        active={active === 'first'}
+        onPress={() => setActive('first')}
+      />
+      <Drawer.Item
+        label="Second Item"
+        active={active === 'second'}
+        onPress={() => setActive('second')}
+      />
+    </Drawer.Section>
+  );
+};
+```
+
+<Playground
+  scope={{ Drawer }}
+  code={`
+() => {
+  const [active, setActive] = React.useState('');
+  return (
+    <Drawer.Section title="Some title">
+      <Drawer.Item
+        label="First Item"
+        active={active === 'first'}
+        onPress={() => setActive('first')}
+      />
+      <Drawer.Item
+        label="Second Item"
+        active={active === 'second'}
+        onPress={() => setActive('second')}
+      />
+    </Drawer.Section>
+  );
+};
+`}
+/>

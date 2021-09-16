@@ -1,0 +1,87 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Banner } from '~/banner';
+import { Button } from '~/button';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Banner
+
+Banner displays a prominent message and related actions.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { Image } from 'react-native';
+import { Banner } from '@divriots/starter-reactnative-paper/banner';
+
+const MyComponent = () => {
+  const [visible, setVisible] = React.useState(true);
+
+  return (
+    <Banner
+      visible={visible}
+      actions={[
+        {
+          label: 'Fix it',
+          onPress: () => setVisible(false),
+        },
+        {
+          label: 'Learn more',
+          onPress: () => setVisible(false),
+        },
+      ]}
+      icon={({ size }) => (
+        <Image
+          source={{
+            uri: 'https://avatars3.githubusercontent.com/u/17571969?s=400&v=4',
+          }}
+          style={{
+            width: size,
+            height: size,
+          }}
+        />
+      )}
+    >
+      There was a problem processing a transaction on your credit card.
+    </Banner>
+  );
+};
+```
+
+<Playground
+  scope={{ Banner, Button }}
+  code={`
+() => {
+  const [visible, setVisible] = React.useState(true);
+  return (
+    <>
+      <Banner
+        visible={visible}
+        actions={[
+          {
+            label: 'Fix it',
+            onPress: () => setVisible(false),
+          },
+          {
+            label: 'Learn more',
+            onPress: () => setVisible(false),
+          },
+        ]}
+        icon={({ size }) => (
+          <img
+            src="https://avatars3.githubusercontent.com/u/17571969?s=400&v=4"
+            style={{ width: size, height: size }}
+          />
+        )}>
+        There was a problem processing a transaction on your credit card.
+      </Banner>
+      {<Button onPress={() => setVisible(!visible)}>{visible ? 'Hide Banner' : 'Show Banner'}</Button>}
+    </>
+  );
+};
+`}
+/>

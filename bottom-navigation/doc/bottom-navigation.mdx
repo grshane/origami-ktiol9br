@@ -1,0 +1,70 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { BottomNavigation } from '~/bottom-navigation';
+import { Button } from '~/button';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Bottom Navigation
+
+Bottom navigation provides quick navigation between top-level views of an app with a bottom navigation bar. It is primarily designed for use on mobile.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { Text } from '@divriots/starter-reactnative-paper/typography';
+import { BottomNavigation } from '@divriots/starter-reactnative-paper/bottom-navigation';
+
+const MusicRoute = () => <Text>Music</Text>;
+
+const AlbumsRoute = () => <Text>Albums</Text>;
+
+const RecentsRoute = () => <Text>Recents</Text>;
+
+const MyComponent = () => {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'music', title: 'Music', icon: 'music' },
+    { key: 'albums', title: 'Albums', icon: 'album' },
+    { key: 'recents', title: 'Recents', icon: 'history' },
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    music: MusicRoute,
+    albums: AlbumsRoute,
+    recents: RecentsRoute,
+  });
+
+  return (
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+    />
+  );
+};
+```
+
+<Playground
+  scope={{ BottomNavigation }}
+  code={`
+() => {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'music', title: 'Music', icon: 'music' },
+    { key: 'albums', title: 'Albums', icon: 'album' },
+    { key: 'recents', title: 'Recents', icon: 'history' },
+  ]);
+  return (
+      <BottomNavigation
+        navigationState={{ index, routes }}
+        onIndexChange={setIndex}
+        renderScene={() => {}}
+      />
+  );
+};
+`}
+/>

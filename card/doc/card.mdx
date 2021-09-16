@@ -1,0 +1,63 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Card } from '~/card';
+import { Button } from '~/button';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Card
+
+A card is a sheet of material that serves as an entry point to more detailed information.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { Avatar } from '@divriots/starter-reactnative-paper/avatar';
+import { Button } from '@divriots/starter-reactnative-paper/button';
+import { Card } from '@divriots/starter-reactnative-paper/card';
+import {
+  Title,
+  Paragraph,
+} from '@divriots/starter-reactnative-paper/typography';
+
+const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+
+const MyComponent = () => (
+  <Card>
+    <Card.Title
+      title="Card Title"
+      subtitle="Card Subtitle"
+      left={LeftContent}
+    />
+    <Card.Content>
+      <Title>Card title</Title>
+      <Paragraph>Card content</Paragraph>
+    </Card.Content>
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Actions>
+      <Button>Cancel</Button>
+      <Button>Ok</Button>
+    </Card.Actions>
+  </Card>
+);
+```
+
+<Playground
+  scope={{ Card, Button }}
+  code={`
+<Card style={{ width: '30rem' }}>
+  <Card.Title title="Card Title" subtitle="Card Subtitle" />
+  <Card.Content>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </Card.Content>
+  <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+  <Card.Actions>
+    <Button>Cancel</Button>
+    <Button>Ok</Button>
+  </Card.Actions>
+</Card>
+`}
+/>

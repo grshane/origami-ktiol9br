@@ -1,0 +1,33 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { ActivityIndicator } from '~/activity-indicator';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Activity Indicator
+
+Activity indicator is used to present progress of some activity in the app. It can be used as a drop-in for the ActivityIndicator shipped with React Native.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { ActivityIndicator } from '@divriots/starter-reactnative-paper/activity-indicator';
+
+const MyComponent = () => (
+  <ActivityIndicator animating={true} color="#c62828" />
+);
+```
+
+<Playground
+  scope={{ ActivityIndicator }}
+  code={`
+<ActivityIndicator animating />
+<ActivityIndicator animating={false} />
+<ActivityIndicator size="small" />
+<ActivityIndicator size="large" />
+<ActivityIndicator size={64} />
+`}
+/>

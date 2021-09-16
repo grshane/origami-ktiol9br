@@ -1,0 +1,48 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Searchbar } from '~/search-bar';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Snackbar
+
+Searchbar is a simple input box where users can type search queries.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { Searchbar } from '@divriots/starter-reactnative-paper/search-bar';
+
+const MyComponent = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = (query) => setSearchQuery(query);
+
+  return (
+    <Searchbar
+      placeholder="Search"
+      onChangeText={onChangeSearch}
+      value={searchQuery}
+    />
+  );
+};
+```
+
+<Playground
+  scope={{ Searchbar }}
+  code={`
+() => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+  return (
+    <Searchbar
+      placeholder="Search"
+      onChangeText={setSearchQuery}
+      value={searchQuery}
+    />
+  );
+};
+`}
+/>

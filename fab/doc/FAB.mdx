@@ -1,0 +1,58 @@
+import React from 'react';
+import { View } from 'react-native';
+import { mdx } from '@mdx-js/react';
+import { FAB } from '~/fab';
+import { Playground } from '@divriots/dockit-react/playground';
+
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Floating Action Button
+
+A floating action button represents the primary action in an application.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { StyleSheet } from 'react-native';
+import { FAB } from '@divriots/starter-reactnative-paper/fab';
+
+const MyComponent = () => (
+  <FAB
+    style={styles.fab}
+    small
+    icon="plus"
+    onPress={() => console.log('Pressed')}
+  />
+);
+
+const styles = StyleSheet.create({
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
+  },
+});
+```
+
+<Playground
+  scope={{ FAB, View }}
+  code={`
+<View style={{ width: '100%', height: '10rem', position: 'relative' }}>
+  <FAB
+    style={{
+      position: 'absolute',
+      margin: 16,
+      right: 0,
+      bottom: 0,
+    }}
+    small
+    icon="plus"
+    onPress={() => console.log('Pressed')}
+  />
+</View>
+`}
+/>

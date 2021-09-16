@@ -1,0 +1,25 @@
+{
+  "name": "@backlight-dev/grshane.origami-ktiol9br",
+  "version": "0.0.0",
+  "description": "A react-native-paper based design system as a starter kit for Backlight",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "{{ homepage }}",
+  "scripts": {
+    "serve": "npx backlight@latest serve DjySKAJ5cCRiubZKZoAa --open"
+  },
+  "dependencies": {
+    "@babel/runtime": "latest",
+    "@divriots/dockit-react": "latest",
+    "@types/react": "latest",
+    "@types/react-native": "latest",
+    "react": "latest",
+    "react-native": "latest",
+    "react-native-paper": "latest"
+  },
+  "devDependencies": {
+    "@webcomponents-dev/json-element": "^1.3.2",
+    "babel-plugin-react-docgen": "^4.2.1",
+    "prettier": "2.2.1"
+  }
+}

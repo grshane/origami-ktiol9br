@@ -1,0 +1,61 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Appbar } from '~/appbar';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Appbar
+
+A component to display action items in a bar. It can be placed at the top or bottom. The top bar usually contains the screen title, controls such as navigation buttons, menu button etc. The bottom bar usually provides access to a drawer and up to four actions.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { Appbar } from '@divriots/starter-reactnative-paper/appbar';
+import { StyleSheet } from 'react-native';
+
+const MyComponent = () => (
+  <Appbar style={styles.bottom}>
+    <Appbar.Action
+      icon="archive"
+      onPress={() => console.log('Pressed archive')}
+    />
+    <Appbar.Action icon="mail" onPress={() => console.log('Pressed mail')} />
+    <Appbar.Action icon="label" onPress={() => console.log('Pressed label')} />
+    <Appbar.Action
+      icon="delete"
+      onPress={() => console.log('Pressed delete')}
+    />
+  </Appbar>
+);
+
+const styles = StyleSheet.create({
+  bottom: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+});
+```
+
+<Playground
+  scope={{ Appbar }}
+  code={`
+<Appbar>
+  <Appbar.Action
+    icon="archive"
+    onPress={() => console.log('Pressed archive')}
+  />
+  <Appbar.Action icon="mail" onPress={() => console.log('Pressed mail')} />
+  <Appbar.Action icon="label" onPress={() => console.log('Pressed label')} />
+  <Appbar.Action
+    icon="delete"
+    onPress={() => console.log('Pressed delete')}
+  />
+</Appbar>
+`}
+/>

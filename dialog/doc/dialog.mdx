@@ -1,0 +1,77 @@
+import React from 'react';
+import { mdx } from '@mdx-js/react';
+import { Dialog } from '~/dialog';
+import { Button } from '~/button';
+import { Portal, Provider } from 'react-native-paper';
+import { Paragraph } from '~/typography';
+import { Playground } from '@divriots/dockit-react/playground';
+import { Layout } from '~/layout';
+
+export default Layout;
+
+# Dialog
+
+Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks. To render the Dialog above other components, you'll need to wrap it with the Portal component.
+
+## Usage
+
+```tsx
+import * as React from 'react';
+import { View } from 'react-native';
+import { Paragraph } from '@divriots/starter-reactnative-paper/typography';
+import { Button } from '@divriots/starter-reactnative-paper/button';
+import { Dialog } from '@divriots/starter-reactnative-paper/dialog';
+import { Portal } from 'react-native-paper';
+
+const MyComponent = () => {
+  const [visible, setVisible] = React.useState(false);
+
+  const showDialog = () => setVisible(true);
+
+  const hideDialog = () => setVisible(false);
+
+  return (
+    <View>
+      <Button onPress={showDialog}>Show Dialog</Button>
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog.Title>Alert</Dialog.Title>
+          <Dialog.Content>
+            <Paragraph>This is simple dialog</Paragraph>
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideDialog}>Done</Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    </View>
+  );
+};
+```
+
+<Playground
+  scope={{ Dialog, Button, Portal, Paragraph, Provider }}
+  code={`
+() => {
+  const [visible, setVisible] = React.useState(false);
+  const showDialog = () => setVisible(true);
+  const hideDialog = () => setVisible(false);
+  return (
+    <>
+      <Button onPress={showDialog}>Show Dialog</Button>
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog.Title>Alert</Dialog.Title>
+          <Dialog.Content>
+            <Paragraph>This is simple dialog</Paragraph>
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideDialog}>Done</Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    </>
+  );
+};
+`}
+/>
